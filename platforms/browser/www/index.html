@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Calculador de Años Perro</title>
+	
+
+	<style>
+
+	</style>
+    </head>
+<body>
+    <center>
+        <div>
+            CALCULADOR DE SALARIO
+            <br>
+            <br>
+            Horas: <input id="horas" type="text" placeholder="Horas laboradas">
+            <br>
+            <br>
+            Pago/Hora: <input id="pagohora" type="text" placeholder="Sueldo por hora">
+            <br>
+            <br>
+            <textarea id="extra" cols="30" rows="3" placeholder="Bono Aplicado"></textarea>
+            <br>
+            <br>             
+            <button id="calcular">CALCULAR</button>
+            <br>
+            <br> 
+            <br>
+            <br>
+            *Si horas laboradas mayores a 40, se le aplica un bono del 50% por hora extra
+           
+        </div>
+    </center>
+
+    <script>
+        var hrs = document.querySelector("#horas")
+        var pph = document.querySelector("#pagohora")
+        var boton = document.querySelector("button#calcular")
+        var extra = document.querySelector("#extra")
+
+        var minbono = 40
+        var bono = 25
+        var horaextra = 0
+        var pago = 0
+
+        boton.addEventListener("click", function () {          
+            if(hrs.value > minbono) {
+                    horaextra = hrs.value - minbono
+                    var pago1 = horaextra * bono
+                    var pago2 = hrs.value * pph.value
+                    pago = pago1 + pago2
+                    extra.innerHTML = ("El monto a cobrar es de " + pago + " Soles, Bono aplicado +50%") 
+                }else { pph.value * hrs.value * bono
+                        pago = pph.value * hrs.value
+                        extra.innerHTML = ("El monto a cobrar es de " + pago + " Soles, Bono no aplicado") 
+            }
+        })
+
+    </script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>
